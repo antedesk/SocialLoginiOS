@@ -1,0 +1,6 @@
+framework module Pods_SocialLoginHMTLit {
+  umbrella header "Pods-SocialLoginHMTLit-umbrella.h"
+
+  export *
+  module * { export * }
+}
