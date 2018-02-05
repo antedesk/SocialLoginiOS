@@ -12,7 +12,15 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        let logInButton = TWTRLogInButton(logInCompletion: { session, error in
+            if (session != nil) {
+                print("\nsigned in as \(session?.userName)");
+            } else {
+                print("\nerror: \(error?.localizedDescription)");
+            }
+        })
+        logInButton.center = self.view.center
+        self.view.addSubview(logInButton)
     }
 
     override func didReceiveMemoryWarning() {
