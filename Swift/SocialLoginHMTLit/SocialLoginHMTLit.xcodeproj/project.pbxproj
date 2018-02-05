@@ -12,16 +12,21 @@
 		68B4B4EF2024CF090000C74C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68B4B4ED2024CF090000C74C /* Main.storyboard */; };
 		68B4B4F12024CF090000C74C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68B4B4F02024CF090000C74C /* Assets.xcassets */; };
 		68B4B4F42024CF090000C74C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68B4B4F22024CF090000C74C /* LaunchScreen.storyboard */; };
+		F44C73EAA8DFA8EC0425AA98 /* Pods_SocialLoginHMTLit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D85BCA42744931B283D39EF1 /* Pods_SocialLoginHMTLit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		68370AD520289ADF00543787 /* SocialLoginHMTLit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SocialLoginHMTLit-Bridging-Header.h"; sourceTree = "<group>"; };
 		68B4B4E62024CF090000C74C /* SocialLoginHMTLit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialLoginHMTLit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68B4B4E92024CF090000C74C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68B4B4EB2024CF090000C74C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		68B4B4EE2024CF090000C74C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		68B4B4F02024CF090000C74C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68B4B4F32024CF090000C74C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		68B4B4F52024CF090000C74C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68B4B4F52024CF090000C74C /* Info.plist */ = {isa = PBXFileReference; explicitFileType = text.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8DBB066B53B41D7150D2E1E /* Pods-SocialLoginHMTLit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialLoginHMTLit.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialLoginHMTLit/Pods-SocialLoginHMTLit.release.xcconfig"; sourceTree = "<group>"; };
+		D85BCA42744931B283D39EF1 /* Pods_SocialLoginHMTLit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialLoginHMTLit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8895154D8B3FD4A016DB41B /* Pods-SocialLoginHMTLit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialLoginHMTLit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialLoginHMTLit/Pods-SocialLoginHMTLit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +34,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F44C73EAA8DFA8EC0425AA98 /* Pods_SocialLoginHMTLit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00E8D88C39238FB3C8028146 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D85BCA42744931B283D39EF1 /* Pods_SocialLoginHMTLit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3847291DE01B6E242548CE12 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D8895154D8B3FD4A016DB41B /* Pods-SocialLoginHMTLit.debug.xcconfig */,
+				C8DBB066B53B41D7150D2E1E /* Pods-SocialLoginHMTLit.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		68B4B4DD2024CF080000C74C = {
 			isa = PBXGroup;
 			children = (
 				68B4B4E82024CF090000C74C /* SocialLoginHMTLit */,
 				68B4B4E72024CF090000C74C /* Products */,
+				3847291DE01B6E242548CE12 /* Pods */,
+				00E8D88C39238FB3C8028146 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +85,7 @@
 				68B4B4F02024CF090000C74C /* Assets.xcassets */,
 				68B4B4F22024CF090000C74C /* LaunchScreen.storyboard */,
 				68B4B4F52024CF090000C74C /* Info.plist */,
+				68370AD520289ADF00543787 /* SocialLoginHMTLit-Bridging-Header.h */,
 			);
 			path = SocialLoginHMTLit;
 			sourceTree = "<group>";
@@ -71,9 +97,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 68B4B4F82024CF090000C74C /* Build configuration list for PBXNativeTarget "SocialLoginHMTLit" */;
 			buildPhases = (
+				B589C591095590DFCB1F3396 /* [CP] Check Pods Manifest.lock */,
 				68B4B4E22024CF080000C74C /* Sources */,
 				68B4B4E32024CF080000C74C /* Frameworks */,
 				68B4B4E42024CF080000C74C /* Resources */,
+				A1C1D128C0ED2A2DF8D9662A /* [CP] Embed Pods Frameworks */,
+				35C784CC6BC6FDC474FBC3D0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -96,6 +125,7 @@
 				TargetAttributes = {
 					68B4B4E52024CF080000C74C = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -130,6 +160,61 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		35C784CC6BC6FDC474FBC3D0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SocialLoginHMTLit/Pods-SocialLoginHMTLit-resources.sh",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterShareExtensionUIResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialLoginHMTLit/Pods-SocialLoginHMTLit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A1C1D128C0ED2A2DF8D9662A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialLoginHMTLit/Pods-SocialLoginHMTLit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B589C591095590DFCB1F3396 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SocialLoginHMTLit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		68B4B4E22024CF080000C74C /* Sources */ = {
@@ -272,14 +357,18 @@
 		};
 		68B4B4F92024CF090000C74C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8895154D8B3FD4A016DB41B /* Pods-SocialLoginHMTLit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N7W7UT337L;
 				INFOPLIST_FILE = SocialLoginHMTLit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = it.antedesk.SocialLoginHMTLit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SocialLoginHMTLit/SocialLoginHMTLit-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -287,14 +376,17 @@
 		};
 		68B4B4FA2024CF090000C74C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8DBB066B53B41D7150D2E1E /* Pods-SocialLoginHMTLit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N7W7UT337L;
 				INFOPLIST_FILE = SocialLoginHMTLit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = it.antedesk.SocialLoginHMTLit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SocialLoginHMTLit/SocialLoginHMTLit-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
