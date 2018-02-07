@@ -6,5 +6,5 @@ target 'SocialLoginHMTLit' do
   use_frameworks!
 
   # Pods for SocialLoginHMTLit
-
+  pod 'GoogleSignIn'
 end
