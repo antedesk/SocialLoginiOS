@@ -27,10 +27,8 @@ class ViewController: UIViewController , FBSDKLoginButtonDelegate {
         super.viewDidLoad()
         
         let loginButton = FBSDKLoginButton()
-        view.addSubview(loginButton)
-        //frame's are obselete, please use constraints instead because its 2016 after all
-        loginButton.frame = CGRect(x: 16, y: 50, width: view.frame.width - 32, height: 50)
-        
         loginButton.delegate = self
+        loginButton.center = view.center
+        view.addSubview(loginButton)
     }
 }
