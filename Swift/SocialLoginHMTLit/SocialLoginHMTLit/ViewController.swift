@@ -18,6 +18,11 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance().uiDelegate = self
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(ViewController.receiveToggleAuthUINotification(_:)),
+                                               name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
+                                               object: nil)
+        
         statusText.text = "Google Sign in"
         
         toggleAuthUI()
@@ -30,12 +35,6 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
 
     @IBAction func didTapSignOut(_ sender: AnyObject) {
         GIDSignIn.sharedInstance().signOut()
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(ViewController.receiveToggleAuthUINotification(_:)),
-                                               name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
-                                               object: nil)
-        
         statusText.text = "Signed out"
         toggleAuthUI()
     }
