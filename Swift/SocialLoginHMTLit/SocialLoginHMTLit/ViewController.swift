@@ -7,12 +7,19 @@
 //
 
 import UIKit
+import Firebase
+import FBSDKCoreKit
+import FBSDKLoginKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        let loginButton = FBSDKLoginButton()
+        loginButton.delegate = self
+        loginButton.center = view.center
+        loginButton.readPermissions = ["email", "public_profile"]
+        view.addSubview(loginButton)
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +27,42 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if error != nil {
+            print(error.localizedDescription)
+            return
+        }
+        let accessToken = FBSDKAccessToken.current()
+        guard let accessTokenString = accessToken?.tokenString else { return }
+        
+        let credential = FacebookAuthProvider.credential(withAccessToken: accessTokenString)
+        let firebaseAuth = Auth.auth()
+        
+        firebaseAuth.signIn(with: credential, completion: { (user, error) in
+            if error != nil {
+                print("Something went wrong with our FB user: ", error ?? "")
+                return
+            }
+            print("Successfully logged in with our user: ", user ?? "")
+            
+            let user = Auth.auth().currentUser
+            
+            print("Logged in ", user?.displayName)
+        })
+        
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        print("Logged out!")
+    }
+    
+    
+    
 }
 
