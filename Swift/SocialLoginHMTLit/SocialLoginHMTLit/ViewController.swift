@@ -13,6 +13,9 @@ import FBSDKLoginKit
 
 class ViewController: UIViewController, FBSDKLoginButtonDelegate {
 
+    @IBOutlet weak var userIdLabel: UILabel!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let loginButton = FBSDKLoginButton()
@@ -20,6 +23,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         loginButton.center = view.center
         loginButton.readPermissions = ["email", "public_profile"]
         view.addSubview(loginButton)
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,6 +50,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
             print("Successfully logged in with our user: ", user ?? "")
             
             let user = Auth.auth().currentUser
+            let displayName = user?.displayName
+            self.userIdLabel.text = displayName
             
             print("Logged in ", user?.displayName)
         })
@@ -59,6 +65,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
+        userIdLabel.text = "Facebook Login"
         print("Logged out!")
     }
     
