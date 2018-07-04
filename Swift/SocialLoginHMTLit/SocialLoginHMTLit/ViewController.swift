@@ -6,6 +6,7 @@
 //  Copyright © 2018 antedesk. All rights reserved.
 //
 
+import Firebase
 import UIKit
 import GoogleSignIn
 
@@ -18,6 +19,8 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().signIn()
+        
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(ViewController.receiveToggleAuthUINotification(_:)),
                                                name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
@@ -30,13 +33,18 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @IBAction func didTapSignOut(_ sender: AnyObject) {
         GIDSignIn.sharedInstance().signOut()
-        statusText.text = "Signed out"
-        toggleAuthUI()
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            statusText.text = "Signed out"
+            toggleAuthUI()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
     }
     
     func toggleAuthUI() {

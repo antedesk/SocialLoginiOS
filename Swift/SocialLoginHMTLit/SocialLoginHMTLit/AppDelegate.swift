@@ -6,6 +6,7 @@
 //  Copyright © 2018 antedesk. All rights reserved.
 //
 
+import Firebase
 import UIKit
 import GoogleSignIn
 
@@ -15,7 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        GIDSignIn.sharedInstance().clientID = "877271852566-2via6d1visno85ufb882rg1p4ha7r0oh.apps.googleusercontent.com"
+        FirebaseApp.configure()
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         return true
     }
@@ -26,38 +28,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             print("\(error.localizedDescription)")
             NotificationCenter.default.post(
                 name: Notification.Name(rawValue: "ToggleAuthUINotification"), object: nil, userInfo: nil)
-        } else {
-            // Perform any operations on signed in user here.
-            let userId = user.userID                  // For client-side use only!
-            let idToken = user.authentication.idToken // Safe to send to the server
-            //let fullName = user.profile.name!
-            let givenName = user.profile.givenName
-            let familyName = user.profile.familyName
-            let email = user.profile.email
-            if let fullName = user.profile.name{
-                print(fullName)
-
-                NotificationCenter.default.post(
-                    name: Notification.Name(rawValue: "ToggleAuthUINotification"),
-                    object: nil,
-                    userInfo: ["statusText": "Hi \(fullName)!"])
+        }
+        
+        guard let authentication = user.authentication else { return }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                       accessToken: authentication.accessToken)
+        Auth.auth().signIn(with: credential) { (user, error) in
+            if (error) != nil {
+                print("Google Authentification Fail")
+            } else {
+                print("Google Authentification Success")
+                if let displayName = user?.displayName{
+                    print(displayName)
+                    
+                    NotificationCenter.default.post(
+                        name: Notification.Name(rawValue: "ToggleAuthUINotification"),
+                        object: nil,
+                        userInfo: ["statusText": "Hi \(displayName)!"])
+                }
             }
         }
     }
     
-    // [START openurl]
     func application(_ application: UIApplication,
                      open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         return GIDSignIn.sharedInstance().handle(url,
                                                  sourceApplication: sourceApplication,
                                                  annotation: annotation)
     }
-    // [END openurl]
+
     @available(iOS 9.0, *)
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
         return GIDSignIn.sharedInstance().handle(url,
-                                                 sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-                                                 annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+                                                 sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+                                                 annotation: [:])
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
