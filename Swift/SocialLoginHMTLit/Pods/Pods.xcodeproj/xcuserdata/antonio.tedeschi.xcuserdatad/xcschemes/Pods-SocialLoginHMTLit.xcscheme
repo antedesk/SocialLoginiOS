@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "98CB43744EB96DF4051A37E47D7C98AD"
+               BlueprintIdentifier = "0D909FED5DD8773A835981B42239BB87"
                BuildableName = "Pods_SocialLoginHMTLit.framework"
                BlueprintName = "Pods-SocialLoginHMTLit"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -26,7 +26,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -37,7 +36,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -47,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "98CB43744EB96DF4051A37E47D7C98AD"
+            BlueprintIdentifier = "0D909FED5DD8773A835981B42239BB87"
             BuildableName = "Pods_SocialLoginHMTLit.framework"
             BlueprintName = "Pods-SocialLoginHMTLit"
             ReferencedContainer = "container:Pods.xcodeproj">

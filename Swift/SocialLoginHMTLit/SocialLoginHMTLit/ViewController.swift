@@ -44,6 +44,14 @@ class ViewController: UIViewController {
         if let userID = store.session()?.userID {
             store.logOutUserID(userID)
         }
+        /*
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        */
         print("[LogOut] - User has session: \(Twitter.sharedInstance().sessionStore.hasLoggedInUsers())")
         toggleAuthUI()
     }

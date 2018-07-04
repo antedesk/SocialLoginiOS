@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        FirebaseApp.configure()
+
         Twitter.sharedInstance().start(withConsumerKey:"O4vU6hLMWS0AyAUfwghwydVpZ", consumerSecret:"rVefL1c4foFzPkyypJ48xP0l2NfaCu594YBySsxyGIwqjpNYE7")
         return true
     }
