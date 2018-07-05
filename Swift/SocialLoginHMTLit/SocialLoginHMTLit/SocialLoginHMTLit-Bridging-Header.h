@@ -3,3 +3,4 @@
 //
 
 #import <TwitterKit/TwitterKit.h>
+#import <TwitterCore/TwitterCore.h>

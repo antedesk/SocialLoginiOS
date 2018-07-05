@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6857884320ED32E4006D533F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6857884220ED32E4006D533F /* GoogleService-Info.plist */; };
 		68B4B4EA2024CF090000C74C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B4B4E92024CF090000C74C /* AppDelegate.swift */; };
 		68B4B4EC2024CF090000C74C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B4B4EB2024CF090000C74C /* ViewController.swift */; };
 		68B4B4EF2024CF090000C74C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68B4B4ED2024CF090000C74C /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* Begin PBXFileReference section */
 		49BC56A24B5B9303B84B9144 /* Pods-SocialLoginHMTLit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialLoginHMTLit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialLoginHMTLit/Pods-SocialLoginHMTLit.debug.xcconfig"; sourceTree = "<group>"; };
 		68370AD520289ADF00543787 /* SocialLoginHMTLit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SocialLoginHMTLit-Bridging-Header.h"; sourceTree = "<group>"; };
+		6857884220ED32E4006D533F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		68B4B4E62024CF090000C74C /* SocialLoginHMTLit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialLoginHMTLit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68B4B4E92024CF090000C74C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68B4B4EB2024CF090000C74C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				68B4B4F02024CF090000C74C /* Assets.xcassets */,
 				68B4B4F22024CF090000C74C /* LaunchScreen.storyboard */,
 				68B4B4F52024CF090000C74C /* Info.plist */,
+				6857884220ED32E4006D533F /* GoogleService-Info.plist */,
 				68370AD520289ADF00543787 /* SocialLoginHMTLit-Bridging-Header.h */,
 			);
 			path = SocialLoginHMTLit;
@@ -154,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				68B4B4F42024CF090000C74C /* LaunchScreen.storyboard in Resources */,
+				6857884320ED32E4006D533F /* GoogleService-Info.plist in Resources */,
 				68B4B4F12024CF090000C74C /* Assets.xcassets in Resources */,
 				68B4B4EF2024CF090000C74C /* Main.storyboard in Resources */,
 			);

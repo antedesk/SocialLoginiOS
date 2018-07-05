@@ -2,11 +2,13 @@
 //  ViewController.swift
 //  SocialLoginHMTLit
 //
-//  Created by antonio.tedeschi on 02/02/18.
+//  Created by antonio.tedeschi on 02/07/18.
 //  Copyright © 2018 antedesk. All rights reserved.
 //
 
 import UIKit
+import TwitterKit
+import Firebase
 
 class ViewController: UIViewController {
 
@@ -18,13 +20,23 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         logInButton = TWTRLogInButton(logInCompletion: { session, error in
             if (session != nil) {
-                if let userName = session?.userName{
-                    print("hi \(userName)");
-                    self.userIdLabel.text = "Hi \(userName)!"
+                let authToken = session!.authToken
+                let authTokenSecret = session!.authTokenSecret
+                let credential = TwitterAuthProvider.credential(withToken: authToken, secret: authTokenSecret)
+                Auth.auth().signIn(with: credential) { (user, error) in
+                    if let error = error {
+                        print("error: \(error.localizedDescription)");
+                        return
+                    }
+                    if let userName = user?.displayName{
+                        print("hi \(userName)");
+                        self.userIdLabel.text = "Hi \(userName)!"
+                    }
+                    self.toggleAuthUI()
                 }
-                self.toggleAuthUI()
+                
             } else {
-                print("error: \(error?.localizedDescription)");
+                print("error: \(String(describing: error?.localizedDescription))");
             }
         })
         logInButton.center = self.view.center
@@ -44,14 +56,14 @@ class ViewController: UIViewController {
         if let userID = store.session()?.userID {
             store.logOutUserID(userID)
         }
-        /*
+        
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
-        */
+        
         print("[LogOut] - User has session: \(Twitter.sharedInstance().sessionStore.hasLoggedInUsers())")
         toggleAuthUI()
     }
